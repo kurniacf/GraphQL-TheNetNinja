@@ -1,0 +1,24 @@
+{
+  "name": "graphql-tutorial",
+  "version": "1.0.0",
+  "description": "learn graphql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "author": "kurniacf",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurniacf/GraphQL-TheNetNinja.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kurniacf/GraphQL-TheNetNinja/issues"
+  },
+  "homepage": "https://github.com/kurniacf/GraphQL-TheNetNinja#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
