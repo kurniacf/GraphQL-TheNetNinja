@@ -8,29 +8,34 @@ let movies = [
     {
         name: 'Spiderman No Way Home',
         genre: 'Action',
-        id: '1'
+        id: '1',
+        castId: '4'
     },
     {
         name: '500 Days of Summer',
         genre: 'Romance',
-        id: '2'
+        id: '2',
+        castId: '3'
     },
     {
         name: 'Loki',
         genre: 'Action',
-        id: '3'
+        id: '3',
+        castId: '1'
     },
     {
         name: 'Thor: Ragnarock',
         genre: 'Action',
-        id: '4'
+        id: '4',
+        castId: '1'
     },
     {
         name: 'Free Guy',
         genre: 'Sci-Fi',
-        id: '5'
+        id: '5',
+        castId: '2'
     }
-];
+]; 
 
 let casts = [
     {
@@ -66,6 +71,15 @@ const MovieType = new GraphQLObjectType({
         },
         genre: {
             type: GraphQLString
+        },
+        cast: {
+            type: CastType,
+            resolve(parent, args){
+                console.log(parent);
+                return lodash.find(casts, {
+                    id: parent.castId
+                })
+            }
         }
     })
 });
