@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const lodash = require('lodash');
 
-const {GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt} = graphql;
+const {GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList} = graphql;
 
 // Dummy Test Data
 let movies = [
@@ -95,9 +95,18 @@ const CastType = new GraphQLObjectType({
         },
         age: {
             type: GraphQLInt
+        },
+        movies: {
+            type: new GraphQLList(MovieType),
+            resolve(parent, args){
+                return lodash.filter(movies, {
+                    castId: parent.id
+                });
+            }
         }
     })
 });
+
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
