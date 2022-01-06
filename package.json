@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kurniacf/GraphQL-TheNetNinja/issues"
   },
-  "homepage": "https://github.com/kurniacf/GraphQL-TheNetNinja#readme"
+  "homepage": "https://github.com/kurniacf/GraphQL-TheNetNinja#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
 }

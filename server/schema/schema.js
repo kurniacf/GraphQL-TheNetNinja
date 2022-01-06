@@ -138,6 +138,12 @@ const RootQuery = new GraphQLObjectType({
                     id: args.id
                 });
             }
+        },
+        movies: {
+            type: new GraphQLList(MovieType),
+            resolve(parent, args){
+                return movies
+            }
         }
     }
 });
