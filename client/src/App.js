@@ -5,7 +5,7 @@ import MovieList from "./components/movieList";
 
 // Apollo Setup
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://localhost:5000/graphql'
 });
 
 class App extends Component{
