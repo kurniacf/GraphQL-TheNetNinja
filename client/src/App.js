@@ -2,6 +2,7 @@ import { Component } from "react";
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 import MovieList from "./components/movieList";
+import AddMovie from "./components/addMovie";
 
 // Apollo Setup
 const client = new ApolloClient({
@@ -15,6 +16,7 @@ class App extends Component{
         <div>
           <h1>Movie List</h1>
             <MovieList/>
+            <AddMovie/>
         </div>
       </ApolloProvider>
     )
