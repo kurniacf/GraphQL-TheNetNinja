@@ -18,4 +18,17 @@ const getCastsQuery = gql`
     }
 `;
 
-export {getCastsQuery, getMoviesQuery};
+const addMovieMutation = gql`
+    mutation{
+        addMovie(
+            name:"",
+            genre:"",
+            castId:""
+        ) {
+            name
+            id
+        }
+    }
+`
+
+export {getCastsQuery, getMoviesQuery, addMovieMutation};
