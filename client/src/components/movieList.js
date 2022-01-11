@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import {getMoviesQuery} from "../query/query";
+import MovieDetails from './movieDetails';
 
 class MovieList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            selected: null
+        }
+    }
+
     displayMovies(){
         var data = this.props.data;
         if(data.loading){
@@ -12,7 +20,7 @@ class MovieList extends Component {
         } else {
             return data.movies.map(movie => {
                 return(
-                    <li key={ movie.id }>{ movie.name }</li>
+                    <li key={ movie.id } onClick={(e)=>{this.setState({selected: movie.id})}}>{ movie.name }</li>
                 );
             })
         }
@@ -24,6 +32,7 @@ class MovieList extends Component {
                 <ul id="movie-list">
                     { this.displayMovies() }
                 </ul>
+                <MovieDetails movieId={this.state.selected}/>
             </div>
         );
     }

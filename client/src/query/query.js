@@ -19,16 +19,34 @@ const getCastsQuery = gql`
 `;
 
 const addMovieMutation = gql`
-    mutation{
+    mutation($name: String!, $genre: String!, $castId:ID!){
         addMovie(
-            name:"",
-            genre:"",
-            castId:""
+            name: $name,
+            genre: $genre,
+            castId: $castId
         ) {
             name
             id
         }
     }
 `
+const getMovieQuery = gql`
+    query($id: ID){
+        movie(id: $id){
+            id
+            name
+            genre
+            cast{
+                id
+                name
+                age
+                movies{
+                    name
+                    id
+                }
+            }
+        }
+    }
+`
 
-export {getCastsQuery, getMoviesQuery, addMovieMutation};
+export {getCastsQuery, getMoviesQuery, addMovieMutation, getMovieQuery};

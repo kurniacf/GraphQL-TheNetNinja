@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {graphql} from 'react-apollo';
 import {flowRight as compose} from 'lodash';
-import {getCastsQuery, addMovieMutation} from "../query/query";
+import {getCastsQuery, addMovieMutation, getMoviesQuery} from "../query/query";
 
 class AddMovie extends Component {
     constructor(props){
@@ -25,7 +25,14 @@ class AddMovie extends Component {
     }
     submitForm(ex){
         ex.preventDefault();
-        this.props.addMovieMutation();
+        this.props.addMovieMutation({
+            variables: {
+                name: this.state.name,
+                genre: this.state.genre,
+                castId: this.state.castId
+            },
+            refetchQueries: [{query: getMoviesQuery}]
+        });
     }
 
     render(){
